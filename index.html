@@ -319,6 +319,49 @@
             margin-top: 8px;
         }
         
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+            
+            .cv-container {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+                min-height: auto;
+                box-shadow: none;
+            }
+            
+            .sidebar {
+                padding: 30px 20px;
+            }
+            
+            .main-content {
+                padding: 30px 20px;
+            }
+            
+            .name {
+                font-size: 28px;
+            }
+            
+            .section {
+                margin-bottom: 25px;
+            }
+            
+            .header {
+                margin-bottom: 25px;
+                padding-bottom: 20px;
+            }
+            
+            .profile-text {
+                padding: 15px;
+            }
+            
+            .experience-item, .education-item, .project-item {
+                padding-left: 18px;
+                margin-bottom: 20px;
+            }
+        }
+        
         @media print {
             body {
                 padding: 0;
@@ -404,7 +447,7 @@
                         <div class="edu-school">Sorbonne Université, Paris</div>
                     </div>
                     <div class="edu-details">
-                        Licence en DANT (Développement d'Applications Nouvelles Technologies), après une année en Sciences Formelles (statistiques, mathématiques et informatiques).
+                        Licence en DAN (Développement d'Applications Nouvelles Technologies), après une année en Sciences Formelles (statistiques, mathématiques et informatiques).
                     </div>
                 </div>
                 <div class="education-item">
