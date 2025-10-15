@@ -31,8 +31,8 @@
         }
         
         .sidebar {
-            background: linear-gradient(165deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
-            color: white;
+            background: linear-gradient(165deg, #e0e7ff 0%, #dbeafe 50%, #bfdbfe 100%);
+            color: #1e293b;
             padding: 45px 32px;
             position: relative;
         }
@@ -55,7 +55,7 @@
         .header {
             margin-bottom: 35px;
             padding-bottom: 25px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(30, 64, 175, 0.2);
         }
         
         .name {
@@ -64,6 +64,7 @@
             margin-bottom: 12px;
             letter-spacing: -0.5px;
             line-height: 1.2;
+            color: #1e293b;
         }
 
         .title {
@@ -71,7 +72,7 @@
             font-weight: 600;
             margin-bottom: 15px;
             opacity: 0.9;
-            color: rgba(255,255,255,0.95);
+            color: #1e40af;
         }
         
         .contact-info {
@@ -92,7 +93,7 @@
             font-weight: 700;
             margin-bottom: 16px;
             padding-bottom: 8px;
-            border-bottom: 2px solid rgba(255,255,255,0.25);
+            border-bottom: 2px solid rgba(30, 64, 175, 0.25);
             letter-spacing: 0.5px;
             text-transform: uppercase;
             font-size: 13px;
@@ -133,7 +134,7 @@
             content: "●";
             position: absolute;
             left: 0;
-            color: #60a5fa;
+            color: #2563eb;
             font-size: 10px;
             top: 50%;
             transform: translateY(-50%);
@@ -150,6 +151,7 @@
             font-size: 13px;
             font-weight: 600;
             opacity: 0.95;
+            color: #1e293b;
         }
         
         .language-item {
@@ -157,7 +159,7 @@
             justify-content: space-between;
             margin-bottom: 10px;
             padding: 8px 12px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(30, 64, 175, 0.1);
             border-radius: 4px;
             backdrop-filter: blur(10px);
         }
@@ -165,7 +167,7 @@
         .language-level {
             font-weight: 600;
             font-size: 12px;
-            background: rgba(255,255,255,0.2);
+            background: rgba(30, 64, 175, 0.2);
             padding: 2px 8px;
             border-radius: 3px;
         }
@@ -379,9 +381,39 @@
                 box-shadow: none;
                 max-width: 100%;
                 border-radius: 0;
+                page-break-inside: avoid;
             }
             .sidebar::before {
-                display: none;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .sidebar {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .section-title {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .main-content .section-title::before {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .profile-text {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .experience-item::before, .education-item::before, .project-item::before {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .language-item {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .project-link {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
     </style>
@@ -391,7 +423,7 @@
         <div class="sidebar">
             <div class="header">
                 <div class="name">Gavriel<br>Myara</div>
-                <div class="title">Etudiant en informatique</div>
+                <div class="title">Développeur stagiaire</div>
                 <div class="contact-info">
                     <span>📧</span>
                     <span>gavriel.myara@gmail.com</span>
@@ -400,35 +432,55 @@
                     <span>📞</span>
                     <span>0695995393</span>
                 </div>
+                <div class="contact-info">
+                    <span>💼</span>
+                    <a href="https://www.linkedin.com/in/gavriel-myara-759825311/" target="_blank" style="color: #1e40af; text-decoration: none;">linkedin.com/in/gavriel-myara</a>
+                </div>
+                <div class="contact-info">
+                    <span>💻</span>
+                    <a href="https://github.com/gaviash" target="_blank" style="color: #1e40af; text-decoration: none;">github.com/gaviash</a>
+                </div>
             </div>
             
             <div class="section">
                 <div class="section-title">💡 Compétences</div>
-                <ul class="skill-list">
-                    <li>Curiosité</li>
-                    <li>Esprit critique</li>
-                    <li>Gestion de projets</li>
-                    <li>Efficace</li>
-                    <li>Investi</li>
-                    <li>Passionné</li>
-                </ul>
-                <div class="programming-title">Programmation :</div>
+                <div class="programming-title">Développement :</div>
                 <ul class="skill-list nested-skills">
-                    <li>GDScript & Godot</li>
-                    <li>HTML & CSS</li>
-                    <li>Python</li>
+                    <li>Python (Pandas, Numpy)</li>
                     <li>Langage C</li>
+                    <li>HTML & CSS (Bootstrap)</li>
+                    <li>GDScript & Godot</li>
+                    <li>Programmation objet</li>
+                </ul>
+                <div class="programming-title">Base de données :</div>
+                <ul class="skill-list nested-skills">
+                    <li>SQL via SQLite</li>
+                </ul>
+                <div class="programming-title">Développement collaboratif :</div>
+                <ul class="skill-list nested-skills">
+                    <li>GitHub</li>
+                    <li>VS Code</li>
                     <li>Bash & ligne de commande</li>
+                </ul>
+                <div class="programming-title">Outils & Logiciels :</div>
+                <ul class="skill-list nested-skills">
+                    <li>Google Analytics</li>
+                    <li>Base44</li>
+                    <li>Claude AI</li>
+                    <li>Make</li>
+                    <li>Canva</li>
+                </ul>
+                <div class="programming-title">Savoir-être :</div>
+                <ul class="skill-list nested-skills">
+                    <li>Curiosité & esprit critique</li>
+                    <li>Gestion de projets</li>
+                    <li>Efficace & investi</li>
                 </ul>
             </div>
             
             <div class="section">
                 <div class="section-title">🌍 Langues</div>
                 <ul class="language-list">
-                    <li class="language-item">
-                        <span>Français</span>
-                        <span class="language-level">C2</span>
-                    </li>
                     <li class="language-item">
                         <span>Anglais</span>
                         <span class="language-level">B2</span>
@@ -453,7 +505,7 @@
             <div class="section">
                 <div class="section-title">🎯 Profil</div>
                 <div class="profile-text">
-                    À la recherche de mes premières expériences professionnelles pour développer mes compétences et apprendre à appliquer mon savoir-faire. Passionné et investi dans mon domaine d'études, je me sens capable d'aborder de nombreux défis.
+                    À la recherche d'un stage pour développer mes compétences et apprendre à appliquer mon savoir-faire. Passionné et investi dans mon domaine d'études, je me sens capable d'aborder de nombreux défis.
                 </div>
             </div>
             
@@ -466,7 +518,8 @@
                         <div class="edu-school">Sorbonne Université, Paris</div>
                     </div>
                     <div class="edu-details">
-                        Licence en DANT (Développement d'Applications Nouvelles Technologies), après une année en Sciences Formelles (statistiques, mathématiques et informatiques).
+                        Licence en DANT (Développement d'Applications Nouvelles Technologies), après une année en Sciences Formelles (statistiques, mathématiques et informatiques).<br><br>
+                        <strong>UE enseignées :</strong> Science des données, Structure des données, Développement web, Shell & systèmes d'exploitation.
                     </div>
                 </div>
                 <div class="education-item">
@@ -478,29 +531,6 @@
                     <div class="edu-details">
                         Spécialités Mathématiques et Informatique
                     </div>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">💼 Expérience professionnelle</div>
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <div class="exp-title">Professeur particulier</div>
-                        <div class="exp-company">Cours de soutien scolaire</div>
-                    </div>
-                    <ul class="exp-description">
-                        <li>Cours particuliers en mathématiques et sciences (niveau collège)</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <div class="exp-title">Chef de rang - Cuisine traditionnelle</div>
-                        <div class="exp-company">Job d'été - Resto V, La Garenne-Colombes</div>
-                    </div>
-                    <ul class="exp-description">
-                        <li>Gestion de la salle et service à la clientèle</li>
-                        <li>Service en salle, encaissement et débarrassage</li>
-                    </ul>
                 </div>
             </div>
             
@@ -525,6 +555,29 @@
                     <div class="project-description">
                         Simulation de vol en groupe (flocking) selon les règles avancées des modèles de mouvement réalistes, réalisée dans le cadre de mes études.
                     </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">💼 Expérience professionnelle</div>
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div class="exp-title">Professeur particulier</div>
+                        <div class="exp-company">Cours de soutien scolaire</div>
+                    </div>
+                    <ul class="exp-description">
+                        <li>Cours particuliers en mathématiques et sciences (niveau collège)</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div class="exp-title">Chef de rang - Cuisine traditionnelle</div>
+                        <div class="exp-company">Job d'été - Resto V, La Garenne-Colombes</div>
+                    </div>
+                    <ul class="exp-description">
+                        <li>Gestion de la salle et service à la clientèle</li>
+                        <li>Service en salle, encaissement et débarrassage</li>
+                    </ul>
                 </div>
             </div>
         </div>
