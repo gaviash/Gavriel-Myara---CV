@@ -9,6 +9,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
         
         body {
@@ -16,25 +18,33 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 30px;
             line-height: 1.6;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        @page {
+            size: A4;
+            margin: 0;
         }
         
         .cv-container {
             max-width: 210mm;
-            min-height: 297mm;
             margin: 0 auto;
             background: white;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             display: grid;
             grid-template-columns: 38% 62%;
             border-radius: 2px;
-            overflow: hidden;
         }
         
         .sidebar {
             background: linear-gradient(165deg, #e0e7ff 0%, #dbeafe 50%, #bfdbfe 100%);
             color: #1e293b;
-            padding: 45px 32px;
+            padding: 40px 28px;
             position: relative;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            min-height: 100%;
         }
         
         .sidebar::before {
@@ -45,16 +55,18 @@
             right: 0;
             height: 4px;
             background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
         
         .main-content {
-            padding: 45px 40px;
+            padding: 40px 35px;
             background: #ffffff;
         }
         
         .header {
-            margin-bottom: 35px;
-            padding-bottom: 25px;
+            margin-bottom: 28px;
+            padding-bottom: 20px;
             border-bottom: 1px solid rgba(30, 64, 175, 0.2);
         }
         
@@ -85,7 +97,7 @@
         }
         
         .section {
-            margin-bottom: 32px;
+            margin-bottom: 26px;
         }
         
         .section-title {
@@ -97,6 +109,8 @@
             letter-spacing: 0.5px;
             text-transform: uppercase;
             font-size: 13px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
         
         .main-content .section-title {
@@ -116,6 +130,8 @@
             height: 20px;
             background: linear-gradient(180deg, #3b82f6, #2563eb);
             border-radius: 2px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
         
         .skill-list, .language-list {
@@ -146,8 +162,8 @@
         }
         
         .programming-title {
-            margin-top: 18px;
-            margin-bottom: 8px;
+            margin-top: 14px;
+            margin-bottom: 6px;
             font-size: 13px;
             font-weight: 600;
             opacity: 0.95;
@@ -162,6 +178,8 @@
             background: rgba(30, 64, 175, 0.1);
             border-radius: 4px;
             backdrop-filter: blur(10px);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
         
         .language-level {
@@ -170,6 +188,8 @@
             background: rgba(30, 64, 175, 0.2);
             padding: 2px 8px;
             border-radius: 3px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
         
         .interests-text {
@@ -180,19 +200,21 @@
         }
         
         .profile-text {
-            font-size: 14px;
-            line-height: 1.8;
+            font-size: 13px;
+            line-height: 1.6;
             color: #374151;
             text-align: justify;
             margin-bottom: 0;
-            padding: 20px;
+            padding: 16px;
             background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
             border-left: 4px solid #3b82f6;
             border-radius: 4px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
         
         .experience-item, .education-item, .project-item {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             padding-left: 24px;
             border-left: 2px solid #e5e7eb;
             position: relative;
@@ -209,6 +231,8 @@
             border-radius: 50%;
             border: 2px solid white;
             box-shadow: 0 0 0 2px #3b82f6;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
         
         .exp-header {
@@ -315,6 +339,8 @@
             border-radius: 4px;
             margin-top: 6px;
             transition: all 0.2s;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
         
         .project-link:hover {
@@ -329,6 +355,32 @@
             margin-top: 8px;
         }
         
+        @media print {
+            body {
+                padding: 0;
+                background: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                max-width: 100%;
+                width: 100%;
+                display: grid !important;
+                grid-template-columns: 38% 62% !important;
+                page-break-inside: avoid;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .experience-item, .education-item, .project-item {
+                page-break-inside: avoid;
+            }
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 0;
@@ -371,51 +423,6 @@
                 margin-bottom: 20px;
             }
         }
-        
-        @media print {
-            body {
-                padding: 0;
-                background: white;
-            }
-            .cv-container {
-                box-shadow: none;
-                max-width: 100%;
-                border-radius: 0;
-                page-break-inside: avoid;
-            }
-            .sidebar::before {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .sidebar {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .section-title {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .main-content .section-title::before {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .profile-text {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .experience-item::before, .education-item::before, .project-item::before {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .language-item {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .project-link {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
     </style>
 </head>
 <body>
@@ -426,7 +433,7 @@
                 <div class="title">Développeur stagiaire</div>
                 <div class="contact-info">
                     <span>📧</span>
-                    <span>gavriel.myara@gmail.com</span>
+                    <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9afdfbece8f3fff6b4f7e3fbe8fbdafdf7fbf3f6b4f9f5f7">[email&#160;protected]</a></span>
                 </div>
                 <div class="contact-info">
                     <span>📞</span>
@@ -505,7 +512,7 @@
             <div class="section">
                 <div class="section-title">🎯 Profil - Motivation </div>
                 <div class="profile-text">
-                     Passionné et investi dans mon domaine d'études depuis tres jeune,je suis très intéréssé dans la formation que vous proposez,car elle me permettrait de pousser en L3 au maximum les aspects que j'aime le plus dans l'informatique : les projets et la pratique.Mon investissement se traduit egalement dans mon rang dans ma classe ce semestre (1/27) et mes projets personnels réalisés.Je me donnerais a fond dans la formation que vous proposez.
+                     Passionné et investi dans mon domaine d'études depuis très jeune, je suis très intéressé dans la formation que vous proposez, car elle me permettrait de pousser en L3 au maximum les aspects que j'aime le plus dans l'informatique : les projets et la pratique. Mon investissement se traduit également dans mon rang dans ma classe ce semestre (1/27) et mes projets personnels réalisés. Je me donnerais à fond dans la formation que vous proposez.
                     <br>Merci d'avance pour votre attention.
                 </div>
             </div>
@@ -577,7 +584,7 @@
                     </div>
                     <ul class="exp-description">
                         <li>Gestion de la salle et service à la clientèle</li>
-                        <li>Service en salle, encaissement et débarrassage</li>
+                        <li>Service en salle, encaissement et déménagement de la clientèle</li>
                     </ul>
                 </div>
             </div>
@@ -585,7 +592,3 @@
     </div>
 </body>
 </html>
-
-
-
-
