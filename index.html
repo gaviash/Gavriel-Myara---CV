@@ -1,595 +1,424 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Gavriel Myara</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-        
-        body {
-            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 30px;
-            line-height: 1.6;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-        
-        @page {
-            size: A4;
-            margin: 0;
-        }
-        
-        .cv-container {
-            max-width: 210mm;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            display: grid;
-            grid-template-columns: 38% 62%;
-            border-radius: 2px;
-        }
-        
-        .sidebar {
-            background: linear-gradient(165deg, #e0e7ff 0%, #dbeafe 50%, #bfdbfe 100%);
-            color: #1e293b;
-            padding: 40px 28px;
-            position: relative;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-            min-height: 100%;
-        }
-        
-        .sidebar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #3b82f6, #60a5fa);
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-        
-        .main-content {
-            padding: 40px 35px;
-            background: #ffffff;
-        }
-        
-        .header {
-            margin-bottom: 28px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(30, 64, 175, 0.2);
-        }
-        
-        .name {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-            line-height: 1.2;
-            color: #1e293b;
-        }
-
-        .title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            opacity: 0.9;
-            color: #1e40af;
-        }
-        
-        .contact-info {
-            font-size: 13px;
-            opacity: 0.95;
-            margin-top: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .section {
-            margin-bottom: 26px;
-        }
-        
-        .section-title {
-            font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid rgba(30, 64, 175, 0.25);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            font-size: 13px;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-        
-        .main-content .section-title {
-            color: #1e40af;
-            border-bottom: 2px solid #3b82f6;
-            position: relative;
-            padding-left: 12px;
-        }
-        
-        .main-content .section-title::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 20px;
-            background: linear-gradient(180deg, #3b82f6, #2563eb);
-            border-radius: 2px;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-        
-        .skill-list, .language-list {
-            list-style: none;
-            font-size: 13px;
-            line-height: 2;
-        }
-        
-        .skill-list li {
-            padding-left: 18px;
-            position: relative;
-            margin-bottom: 2px;
-        }
-        
-        .skill-list li:before {
-            content: "●";
-            position: absolute;
-            left: 0;
-            color: #2563eb;
-            font-size: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        
-        .nested-skills {
-            margin-left: 15px;
-            margin-top: 8px;
-        }
-        
-        .programming-title {
-            margin-top: 14px;
-            margin-bottom: 6px;
-            font-size: 13px;
-            font-weight: 600;
-            opacity: 0.95;
-            color: #1e293b;
-        }
-        
-        .language-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding: 8px 12px;
-            background: rgba(30, 64, 175, 0.1);
-            border-radius: 4px;
-            backdrop-filter: blur(10px);
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-        
-        .language-level {
-            font-weight: 600;
-            font-size: 12px;
-            background: rgba(30, 64, 175, 0.2);
-            padding: 2px 8px;
-            border-radius: 3px;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-        
-        .interests-text {
-            font-size: 13px;
-            line-height: 1.8;
-            text-align: justify;
-            opacity: 0.95;
-        }
-        
-        .profile-text {
-            font-size: 13px;
-            line-height: 1.6;
-            color: #374151;
-            text-align: justify;
-            margin-bottom: 0;
-            padding: 16px;
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            border-left: 4px solid #3b82f6;
-            border-radius: 4px;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-        
-        .experience-item, .education-item, .project-item {
-            margin-bottom: 20px;
-            padding-left: 24px;
-            border-left: 2px solid #e5e7eb;
-            position: relative;
-        }
-        
-        .experience-item::before, .education-item::before, .project-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 6px;
-            width: 10px;
-            height: 10px;
-            background: #3b82f6;
-            border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0 0 0 2px #3b82f6;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-        
-        .exp-header {
-            margin-bottom: 10px;
-        }
-        
-        .exp-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 4px;
-        }
-        
-        .exp-company {
-            font-size: 13px;
-            color: #2563eb;
-            font-weight: 600;
-        }
-        
-        .exp-description {
-            font-size: 13px;
-            line-height: 1.7;
-            color: #4b5563;
-            margin-left: 0;
-            list-style: none;
-        }
-        
-        .exp-description li {
-            margin-bottom: 6px;
-            padding-left: 18px;
-            position: relative;
-        }
-        
-        .exp-description li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: #3b82f6;
-            font-weight: bold;
-        }
-        
-        .education-header {
-            margin-bottom: 8px;
-        }
-        
-        .edu-period {
-            font-size: 12px;
-            color: #2563eb;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .edu-degree {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1f2937;
-            margin-top: 5px;
-            margin-bottom: 3px;
-        }
-        
-        .edu-school {
-            font-size: 13px;
-            color: #6b7280;
-            font-style: italic;
-        }
-        
-        .edu-details {
-            font-size: 13px;
-            color: #4b5563;
-            margin-top: 8px;
-            line-height: 1.7;
-        }
-        
-        .project-header {
-            margin-bottom: 8px;
-        }
-        
-        .project-title {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 4px;
-        }
-        
-        .project-year {
-            font-size: 12px;
-            color: #2563eb;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .project-link {
-            font-size: 12px;
-            color: #2563eb;
-            text-decoration: none;
-            word-break: break-all;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 4px 10px;
-            background: #eff6ff;
-            border-radius: 4px;
-            margin-top: 6px;
-            transition: all 0.2s;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-        
-        .project-link:hover {
-            background: #dbeafe;
-            transform: translateX(2px);
-        }
-        
-        .project-description {
-            font-size: 13px;
-            color: #4b5563;
-            line-height: 1.7;
-            margin-top: 8px;
-        }
-        
-        @media print {
-            body {
-                padding: 0;
-                background: white !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .cv-container {
-                box-shadow: none;
-                max-width: 100%;
-                width: 100%;
-                display: grid !important;
-                grid-template-columns: 38% 62% !important;
-                page-break-inside: avoid;
-            }
-
-            .section {
-                page-break-inside: avoid;
-            }
-
-            .experience-item, .education-item, .project-item {
-                page-break-inside: avoid;
-            }
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 0;
-            }
-            
-            .cv-container {
-                grid-template-columns: 1fr;
-                max-width: 100%;
-                min-height: auto;
-                box-shadow: none;
-            }
-            
-            .sidebar {
-                padding: 30px 20px;
-            }
-            
-            .main-content {
-                padding: 30px 20px;
-            }
-            
-            .name {
-                font-size: 28px;
-            }
-            
-            .section {
-                margin-bottom: 25px;
-            }
-            
-            .header {
-                margin-bottom: 25px;
-                padding-bottom: 20px;
-            }
-            
-            .profile-text {
-                padding: 15px;
-            }
-            
-            .experience-item, .education-item, .project-item {
-                padding-left: 18px;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="CV de Gavriel Myara, étudiant en L3 informatique DANT à Sorbonne Université, orienté développement logiciel et intelligence artificielle.">
+  <title>Gavriel Myara — CV</title>
+  <style>
+    :root{--navy:#123a5a;--ink:#203448;--muted:#53687a;--blue:#1b6c9e;--line:#cbdde8;--rail:#dceefa}
+    *{box-sizing:border-box}
+    html{background:#e8eef2;scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);font-family:Aptos,"Segoe UI",Arial,sans-serif;font-size:9.6pt;line-height:1.37}
+    a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:2px;overflow-wrap:anywhere}
+    a:hover,a:focus-visible{color:var(--navy)}
+    a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+    p{margin:0 0 2.4mm}ul{margin:1.5mm 0 2.5mm;padding-left:4.5mm}li{margin-bottom:1.1mm}
+    strong{color:var(--navy);font-weight:700}
+    .svg-sprite{position:absolute;width:0;height:0;overflow:hidden}
+    .icon{width:4.5mm;height:4.5mm;flex:none;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .sheet{display:grid;grid-template-columns:58mm minmax(0,1fr);width:210mm;min-height:297mm;margin:22px auto;background:#fff;box-shadow:0 10px 35px #14314d20}
+    .rail{background:var(--rail);padding:12mm 7.5mm 10mm 11mm}
+    .content{min-width:0;padding:11.5mm 12mm 9mm 10mm}
+    .identity{margin:0 0 8.5mm}
+    .identity h1{margin:0 0 3mm;color:var(--navy);font-size:27pt;line-height:.99;letter-spacing:-.05em}
+    .identity h1 span{display:block}
+    .role{margin:0;color:var(--navy);font-size:9.5pt;font-weight:600;line-height:1.3}
+    .rail-section{margin-top:8mm}
+    .rail-section h2{margin:0 0 3mm;padding-bottom:1.8mm;border-bottom:1px solid #a9cbdc;color:var(--navy);font-size:9.5pt;line-height:1.2;text-transform:uppercase;letter-spacing:.07em}
+    .contact-list{list-style:none;padding:0;margin:0}
+    .contact-list li{display:flex;gap:2mm;align-items:flex-start;margin:0 0 3mm;font-size:8.45pt;line-height:1.25}
+    .contact-list .icon{width:4mm;height:4mm;margin-top:.1mm;color:var(--blue)}
+    .contact-list a{color:var(--navy);text-decoration:none}
+    .contact-list a:hover,.contact-list a:focus-visible{text-decoration:underline}
+    .skill-list,.interest-list{margin:0;padding-left:4mm}
+    .skill-list li,.interest-list li{margin:0 0 2.4mm;padding-left:.3mm;font-size:8.45pt;line-height:1.3}
+    .skill-list li::marker,.interest-list li::marker{color:var(--blue)}
+    .eyebrow{margin:0 0 2mm;color:var(--blue);font-size:8.7pt;font-weight:700;text-transform:uppercase;letter-spacing:.12em}
+    .intro{padding-bottom:4mm;border-bottom:1px solid var(--line)}
+    .intro p:last-child{margin-bottom:0}
+    .main-section{margin-top:5.2mm}
+    .section-title{display:flex;align-items:center;gap:2.5mm;margin:0 0 3.1mm;padding-bottom:1.8mm;border-bottom:1px solid var(--line);color:var(--navy);font-size:13.3pt;line-height:1.15}
+    .section-title .icon{color:var(--blue)}
+    .entry{position:relative;margin:0 0 4mm;padding-left:4.6mm;border-left:1px solid var(--line);break-inside:avoid}
+    .entry::before{position:absolute;left:-1.3mm;top:1.2mm;width:2.3mm;height:2.3mm;border-radius:50%;background:var(--blue);content:""}
+    .entry h3{margin:0 0 .8mm;color:var(--navy);font-size:10.7pt;line-height:1.2}
+    .meta{margin:0 0 1.8mm;color:var(--muted);font-size:8.2pt;font-weight:600;line-height:1.3}
+    .entry p:last-child,.entry ul:last-child{margin-bottom:0}
+    .compact{margin-bottom:2.8mm}.compact h3{font-size:10pt}.compact p{font-size:8.8pt}
+    .stage-points{margin:1.4mm 0 0;padding-left:4mm}.stage-points li{margin-bottom:1.1mm}
+    .small-note{color:var(--muted);font-size:8.2pt}
+    .continuation{margin-bottom:4.5mm;padding-bottom:2.8mm;border-bottom:1px solid var(--line)}
+    .continuation p,.continuation h2{margin:0}.continuation .eyebrow{margin-bottom:1mm}
+    .continuation-title{color:var(--navy);font-size:16pt;font-weight:700;line-height:1.15}
+    .project{margin-bottom:3.7mm}.project h3{margin-bottom:.5mm}.project .meta{margin-bottom:1.1mm}
+    .project p{margin-bottom:1mm;font-size:9pt;line-height:1.31}
+    .project .stack{color:var(--muted);font-size:8.25pt}.project .stack strong{color:var(--navy)}
+    .project a{font-size:8.1pt;font-weight:600}
+    .side-intro{margin:0 0 2mm;color:var(--navy);font-size:16pt;font-weight:700;line-height:1.08}
+    .side-subtitle{color:#315b77;font-size:8.4pt}.rail .muted{color:#3a5b72}
+    .page-number{margin-top:8mm;color:#52738a;font-size:8pt}
+    .cv-version[hidden],.language-control[hidden]{display:none!important}
+    .language-control{display:flex;justify-content:flex-end;width:210mm;max-width:100%;margin:15px auto -8px;padding:0 4px}
+    .language-control button{padding:9px 15px;border:1px solid #9cbfd3;border-radius:7px;background:#fff;color:var(--navy);font:600 9.5pt Aptos,"Segoe UI",Arial,sans-serif;cursor:pointer;box-shadow:0 2px 8px #14314d16}
+    .language-control button:hover,.language-control button:focus-visible{background:var(--rail);border-color:var(--blue)}
+    .language-control button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+    @media screen and (max-width:820px){
+      html{background:#fff}.sheet{display:block;width:100%;min-height:0;margin:0;box-shadow:none}
+      .language-control{margin:0;padding:12px 20px}
+      .rail,.content{padding:25px clamp(20px,5vw,48px)}
+      .rail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:26px}
+      .identity,.rail-section:first-of-type{grid-column:1/-1}
+      .identity{margin-bottom:8px}.identity h1 span{display:inline}.identity h1 span+span::before{content:" "}
+      .rail-section{margin-top:20px}.content{padding-top:27px;padding-bottom:30px}
+      .sheet+.sheet .rail{border-top:1px solid #bdd9e9}.page-number{display:none}
+    }
+    @media screen and (max-width:520px){
+      body{font-size:10pt}.rail{display:block}.identity h1{font-size:25pt}
+      .identity h1 span{display:block}.identity h1 span+span::before{content:none}
+      .contact-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px}
+      .contact-list li{min-width:0}
+    }
+    @page{size:A4;margin:0}
+    @media print{
+      html,body{width:210mm;background:#fff;print-color-adjust:exact;-webkit-print-color-adjust:exact}
+      .language-control{display:none!important}
+      .sheet{width:210mm;height:297mm;min-height:0;margin:0;box-shadow:none;break-after:page;page-break-after:always}
+      .sheet:last-of-type{break-after:auto;page-break-after:auto}
+      a{color:var(--blue)}.entry,.rail-section{break-inside:avoid}
+    }
+  </style>
 </head>
 <body>
-    <div class="cv-container">
-        <div class="sidebar">
-            <div class="header">
-                <div class="name">Gavriel<br>Myara</div>
-                <div class="title">Développeur stagiaire</div>
-                <div class="contact-info">
-                    <span>📧</span>
-                    <span><a href="mailto:gavriel.myara@gmail.com">gavriel.myara@gmail.com</a></span>
-                </div>
-                <div class="contact-info">
-                    <span>📞</span>
-                    <span>0695995393</span>
-                </div>
-                <div class="contact-info">
-                    <span>💼</span>
-                    <a href="https://www.linkedin.com/in/gavriel-myara-759825311/" target="_blank" style="color: #1e40af; text-decoration: none;">linkedin.com/in/gavriel-myara</a>
-                </div>
-                <div class="contact-info">
-                    <span>💻</span>
-                    <a href="https://github.com/gaviash" target="_blank" style="color: #1e40af; text-decoration: none;">github.com/gaviash</a>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">💡 Compétences</div>
-                <div class="programming-title">Développement :</div>
-                <ul class="skill-list nested-skills">
-                    <li>Python (Pandas, Numpy)</li>
-                    <li>Langage C</li>
-                    <li>HTML & CSS (Bootstrap)</li>
-                    <li>GDScript & Godot</li>
-                    <li>Programmation objet</li>
-                </ul>
-                <div class="programming-title">Base de données :</div>
-                <ul class="skill-list nested-skills">
-                    <li>SQL via SQLite</li>
-                </ul>
-                <div class="programming-title">Développement collaboratif :</div>
-                <ul class="skill-list nested-skills">
-                    <li>GitHub</li>
-                    <li>VS Code</li>
-                    <li>Bash & ligne de commande</li>
-                </ul>
-                <div class="programming-title">Outils & Logiciels :</div>
-                <ul class="skill-list nested-skills">
-                    <li>Google Analytics</li>
-                    <li>Base44</li>
-                    <li>Claude AI</li>
-                    <li>Make</li>
-                    <li>Canva</li>
-                </ul>
-                <div class="programming-title">Savoir-être :</div>
-                <ul class="skill-list nested-skills">
-                    <li>Curiosité & esprit critique</li>
-                    <li>Gestion de projets</li>
-                    <li>Efficace & investi</li>
-                </ul>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🌍 Langues</div>
-                <ul class="language-list">
-                    <li class="language-item">
-                        <span>Anglais</span>
-                        <span class="language-level">B2</span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">❤️ Centres d'intérêt</div>
-                <ul class="skill-list">
-                    <li>Informatique et projets personnels</li>
-                    <li>Lecture : fantasy, SF, policier</li>
-                    <li>Jeux vidéos solos </li>
-                    <li>Mangas</li>
-                    <li>Course à pied/basket</li>
-                    <li>Échecs</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="main-content">
-            <div class="section">
-                <div class="section-title">🎯 Profil - Motivation </div>
-                <div class="profile-text">
-                     Passionné et investi dans mon domaine d'études depuis très jeune, je suis très intéressé dans la formation que vous proposez, car elle me permettrait de pousser en L3 au maximum les aspects que j'aime le plus dans l'informatique : les projets et la pratique. Mon investissement se traduit également dans mon rang dans ma classe ce semestre (1/27) et mes projets personnels réalisés. Je me donnerais à fond dans la formation que vous proposez.
-                    <br>Merci d'avance pour votre attention.
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🎓 Formation</div>
-                <div class="education-item">
-                    <div class="education-header">
-                        <div class="edu-period">2024 – présent</div>
-                        <div class="edu-degree">Licence Informatique</div>
-                        <div class="edu-school">Sorbonne Université, Paris</div>
-                    </div>
-                    <div class="edu-details">
-                        L2 - Licence en DANT (Développement d'Applications Nouvelles Technologies), après une année en L1 - Sciences Formelles (statistiques, mathématiques et informatiques).<br><br>
-                        <strong>UE enseignées :</strong> Science des données, Structure des données, Développement web, Shell & systèmes d'exploitation.
-                    </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-header">
-                        <div class="edu-period">2017 – 2024</div>
-                        <div class="edu-degree">Baccalauréat général — Mention Bien</div>
-                        <div class="edu-school">Yavné Paris, Paris</div>
-                    </div>
-                    <div class="edu-details">
-                        Spécialités Mathématiques et Informatique
-                    </div>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">🧠 Projets personnels</div>
-                <div class="project-item">
-                    <div class="project-header">
-                        <div class="project-year">2025</div>
-                        <div class="project-title">Masked, un jeu vidéo</div>
-                    </div>
-                    <a href="https://gavi-db.itch.io/masked" class="project-link" target="_blank">🔗 gavi-db.itch.io/masked</a>
-                    <div class="project-description">
-                        Jeu vidéo de plateforme réalisé en parallèle de ma première année d'études. Démo créée sur Godot via GDScript.
-                    </div>
-                </div>
-                <div class="project-item">
-                    <div class="project-header">
-                        <div class="project-year">2025</div>
-                        <div class="project-title">Boids: Flock of Birds</div>
-                    </div>
-                    <a href="https://github.com/are-dynamic-2025-g6/boids" class="project-link" target="_blank">🔗 github.com/are-dynamic-2025-g6/boids</a>
-                    <div class="project-description">
-                        Simulation de vol en groupe (flocking) selon les règles avancées des modèles de mouvement réalistes, réalisée dans le cadre de mes études.
-                    </div>
-                </div>
-            </div>
-            
-            <div class="section">
-                <div class="section-title">💼 Expérience professionnelle</div>
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <div class="exp-title">Professeur particulier</div>
-                        <div class="exp-company">Cours de soutien scolaire</div>
-                    </div>
-                    <ul class="exp-description">
-                        <li>Cours particuliers en mathématiques et sciences (niveau collège/lycée)</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <div class="exp-header">
-                        <div class="exp-title">Chef de rang - Cuisine traditionnelle</div>
-                        <div class="exp-company">Job d'été - Resto V, La Garenne-Colombes</div>
-                    </div>
-                    <ul class="exp-description">
-                        <li>Gestion de la salle et service à la clientèle</li>
-                        <li>Service en salle, encaissement et déménagement de la clientèle</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+  <svg class="svg-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M7 3H5a2 2 0 0 0-2 2c0 9 7 16 16 16a2 2 0 0 0 2-2v-2l-5-2-2 2a13 13 0 0 1-7-7l2-2-2-5Z"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.1 0l2-2A5 5 0 0 0 12 3l-1.2 1.2M14 11a5 5 0 0 0-7.1 0l-2 2A5 5 0 0 0 12 21l1.2-1.2"/></symbol>
+    <symbol id="i-study" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5L2 9Z"/><path d="M6 11v5c3.5 3 8.5 3 12 0v-5M22 9v7"/></symbol>
+    <symbol id="i-work" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12a20 20 0 0 0 18 0"/></symbol>
+  </svg>
+
+  <div class="language-control" hidden>
+    <button type="button" id="language-switch" aria-controls="cv-fr cv-en">English version</button>
+  </div>
+
+  <div class="cv-version" id="cv-fr" lang="fr">
+
+  <section class="sheet" aria-label="CV de Gavriel Myara, page 1">
+    <aside class="rail" aria-label="Identité, coordonnées et compétences">
+      <header class="identity">
+        <h1>Gavriel <span>Myara</span></h1>
+        <p class="role">Étudiant en L3 informatique (DANT)<br>Développement logiciel &amp; IA</p>
+      </header>
+      <section class="rail-section" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <ul class="contact-list">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:gavriel.myara@gmail.com">gavriel.myara@<br>gmail.com</a></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+33695995393">06 95 99 53 93</a></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg><a href="https://www.linkedin.com/in/gavriel-myara-759825311/">linkedin.com/in/gavriel-myara</a></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg><a href="https://github.com/gaviash">github.com/gaviash</a></li>
+        </ul>
+      </section>
+      <section class="rail-section" aria-labelledby="skills-title">
+        <h2 id="skills-title">Compétences</h2>
+        <ul class="skill-list">
+          <li><strong>Langages :</strong> Python, SQL, C, HTML/CSS, GDScript.</li>
+          <li><strong>Fondamentaux :</strong> algorithmique, structures de données, POO.</li>
+          <li><strong>Backend :</strong> API REST, bases relationnelles, intégration de services, SMTP/IMAP, webhooks.</li>
+          <li><strong>IA :</strong> RAG, recherche documentaire, embeddings, agents outillés, prompts et évaluation.</li>
+        </ul>
+      </section>
+      <section class="rail-section" aria-labelledby="language-title">
+        <h2 id="language-title">Langue</h2>
+        <p><strong>Anglais B2</strong><br><span class="muted">Enseignement suivi en L2.</span></p>
+      </section>
+      <p class="page-number">01 / 02</p>
+    </aside>
+    <main class="content">
+      <header class="intro">
+        <p class="eyebrow">Profil</p>
+        <p>Étudiant en L3 informatique, parcours DANT, <strong>major de promotion en L2 informatique monodisciplinaire</strong> et <strong>1er sur 27 dans le parcours métier</strong> en 2025-2026. Mon stage dans l’équipe Data Science &amp; IA de Keyrus AI a renforcé ma pratique du développement logiciel et de l’IA appliquée, du prototype à l’évaluation.</p>
+      </header>
+      <section class="main-section" aria-labelledby="education-title">
+        <h2 class="section-title" id="education-title"><svg class="icon" aria-hidden="true"><use href="#i-study"/></svg>Formation</h2>
+        <article class="entry">
+          <h3>Licence Informatique · Sorbonne Université</h3>
+          <p class="meta">Paris · Depuis 2024 · Actuellement en L3 informatique (2026-2027)</p>
+          <p>Après une L1 en sciences formelles et une L2 informatique, j’ai rejoint le parcours DANT (Développement d’Applications Nouvelles Technologies). J’y étudie actuellement les systèmes, les réseaux, la POO avancée, le génie logiciel, l’entrepreneuriat et les mathématiques.</p>
+          <p><strong>En L2 (2025-2026),</strong> j’ai obtenu <strong>15,164/20</strong> de moyenne et me suis classé <strong>1er/165</strong> en informatique monodisciplinaire et <strong>1er/27</strong> dans le parcours métier. J’ai validé mon stage avec <strong>90/100</strong>. J’ai étudié le Web, l’algorithmique, les structures de données, les bases relationnelles, les systèmes et les mathématiques discrètes.</p>
+        </article>
+        <article class="entry compact">
+          <h3>Baccalauréat général · Mention Bien</h3>
+          <p class="meta">Yavné Paris · 2017-2024</p>
+          <p>J’ai suivi les spécialités mathématiques et informatique.</p>
+        </article>
+      </section>
+      <section class="main-section" aria-labelledby="experience-title">
+        <h2 class="section-title" id="experience-title"><svg class="icon" aria-hidden="true"><use href="#i-work"/></svg>Expérience professionnelle</h2>
+        <article class="entry">
+          <h3>Stagiaire ingénieur IA junior · Keyrus AI</h3>
+          <p class="meta">16 avril – 24 juillet 2026 · Équipe Data Science &amp; IA · Levallois-Perret</p>
+          <ul class="stage-points">
+            <li>J’ai conçu des prototypes d’IA appliquée, créé des API et automatisé des tests et un déploiement.</li>
+            <li>J’ai comparé des approches de recherche et de génération documentaire en mesurant fiabilité, durée, consommation et coût, puis présenté un rapport et une démonstration à l’équipe.</li>
+            <li>En binôme avec un responsable technique, j’ai participé au démarrage d’une mission pour LCL : clarification du besoin avec l’équipe DevOps, premiers essais de génération de tests SQL et proposition d’une architecture, validée puis retenue comme référence pour l’ensemble de la mission.</li>
+          </ul>
+          <p class="small-note">J’ai également observé une mission chez Antalis pour découvrir son architecture applicative et ses pratiques d’intégration continue.</p>
+        </article>
+        <article class="entry compact">
+          <h3>Professeur particulier · Soutien scolaire</h3>
+          <p>J’ai donné des cours de mathématiques et de sciences à des élèves de collège et de lycée, en adaptant mes explications à chacun.</p>
+        </article>
+        <article class="entry compact">
+          <h3>Chef de rang · Resto V</h3>
+          <p class="meta">Job d’été · La Garenne-Colombes</p>
+          <p>J’ai géré la salle, servi les clients et assuré l’encaissement.</p>
+        </article>
+      </section>
+    </main>
+  </section>
+
+  <section class="sheet" aria-label="CV de Gavriel Myara, page 2">
+    <aside class="rail" aria-label="Compétences complémentaires et centres d’intérêt">
+      <header><p class="side-intro">Gavriel Myara</p><p class="side-subtitle">Développement logiciel &amp; IA appliquée</p></header>
+      <section class="rail-section" aria-labelledby="more-skills-title">
+        <h2 id="more-skills-title">Outils</h2>
+        <ul class="skill-list">
+          <li><strong>Backend :</strong> FastAPI, Pydantic, SQLite.</li>
+          <li><strong>IA :</strong> LlamaIndex, Ollama, Langfuse.</li>
+          <li><strong>Développement :</strong> Git, GitHub, GitLab, Docker, Pytest, Ruff, Linux, Bash.</li>
+          <li><strong>Création :</strong> VS Code, Bootstrap, Godot, Google Analytics, Base44, Claude AI, Make, Canva.</li>
+        </ul>
+        <p class="small-note">Découverte d’AWS Bedrock et de Jenkins en contexte de stage.</p>
+      </section>
+      <section class="rail-section" aria-labelledby="interests-title">
+        <h2 id="interests-title">Centres d’intérêt</h2>
+        <ul class="interest-list">
+          <li>Informatique et projets personnels.</li>
+          <li><strong>Jeux vidéo</strong><br>Licences favorites : Fire Emblem, Persona et Zelda.<br>Derniers jeux joués : FF7 Remake et Fire Emblem Fortune’s Weave.</li>
+          <li><strong>Lecture</strong><br>Fantasy, science-fiction et policier.<br>Derniers livres lus : <cite>Les Diables</cite> de Joe Abercrombie et <cite>Je suis Pilgrim</cite> de Terry Hayes.</li>
+          <li>Mangas.</li>
+          <li>Course à pied, basket et échecs.</li>
+        </ul>
+      </section>
+      <p class="page-number">02 / 02</p>
+    </aside>
+    <div class="content">
+      <header class="continuation"><p class="eyebrow">Sélection de réalisations</p><h2 class="continuation-title">Projets &amp; réalisations</h2></header>
+      <section aria-label="Projets en ordre chronologique inverse">
+        <article class="entry project">
+          <h3>DocumentationAgent · Documentation de code</h3>
+          <p class="meta">2026 · Stage Keyrus AI · <a href="https://github.com/gaviash/Documentation-Agent">Version 1</a> · <a href="https://github.com/gaviash/DocumentationAgent-v2">Version 2</a></p>
+          <p>J’ai conçu un outil qui explore un projet et génère une documentation ciblée, puis une seconde version où le programme gère les étapes répétables. Lors des essais du stage, elle est passée d’environ <strong>500 000 à 80 000 tokens</strong>, de <strong>10-15 à 5 minutes</strong> et de <strong>30 % à 90 %</strong> de documents jugés satisfaisants.</p>
+          <p class="stack"><strong>Outils :</strong> Python pour l’orchestration, LlamaIndex et Ollama pour les modèles, Langfuse pour les mesures, Pandoc et Mermaid pour les exports.</p>
+        </article>
+        <article class="entry project">
+          <h3>Little Agent · Agent IA doté d’outils</h3>
+          <p class="meta">2026 · Stage Keyrus AI · <a href="https://github.com/gaviash/little_agent">Voir le code</a></p>
+          <p>J’ai créé un agent capable d’utiliser des fichiers, un terminal et la recherche Web, accessible par une interface de conversation et une API. J’y ai ajouté des contrôles d’accès aux fichiers, des tests et un déploiement automatisé.</p>
+          <p class="stack"><strong>Outils :</strong> LlamaIndex, FastAPI, Tavily ; Pytest et Ruff pour la vérification ; Docker, GitHub Actions et Render pour le déploiement.</p>
+        </article>
+        <article class="entry project">
+          <h3>PageIndex · Étude comparative</h3>
+          <p class="meta">2026 · Mission de stage</p>
+          <p>J’ai évalué une recherche hiérarchique dans de longs documents structurés face à un RAG vectoriel classique. J’ai adapté le prototype, mesuré précision, latence et coût, puis présenté un rapport et une démonstration.</p>
+          <p class="stack"><strong>Outils :</strong> PageIndex pour la recherche, Langfuse pour suivre les appels aux modèles et leur coût.</p>
+        </article>
+        <article class="entry project">
+          <h3>Gustave · Chatbot documentaire</h3>
+          <p class="meta">2026 · Projet pour l’entretien technique Keyrus AI · <a href="https://github.com/gaviash/Documentary-Chatbot---Gustave">Voir le code</a></p>
+          <p>J’ai créé un chatbot documentaire avec modèle local et index persistant. J’ai séparé les questions documentaires de la conversation ordinaire ; dans mon environnement de test, les messages sans recherche sont passés d’environ <strong>90-120 s à 2-8 s</strong>.</p>
+          <p class="stack"><strong>Outils :</strong> LlamaIndex pour l’indexation, Ollama pour les réponses, embeddings Hugging Face pour la recherche, FastAPI pour l’API.</p>
+        </article>
+        <article class="entry project">
+          <h3>Masked · Jeu de plateforme</h3>
+          <p class="meta">2025 · Projet personnel · <a href="https://gavi-db.itch.io/masked">Démo jouable</a></p>
+          <p>J’ai conçu ce jeu pendant ma première année d’études avec <strong>Godot</strong> et <strong>GDScript</strong>.</p>
+        </article>
+        <article class="entry project">
+          <h3>Boids: Flock of Birds · Simulation</h3>
+          <p class="meta">2025 · Projet d’études · <a href="https://github.com/are-dynamic-2025-g6/boids">Code et présentation</a></p>
+          <p>J’ai réalisé une simulation de vol en groupe selon le modèle Boids, avec une visualisation 2D sous <strong>Godot</strong> et des déplacements programmés en <strong>GDScript</strong>.</p>
+        </article>
+        <article class="entry project">
+          <h3>Backend de messagerie · CRM médical</h3>
+          <p class="meta">Projet complémentaire · <a href="https://github.com/Magic-platform/proton_backend">Voir le code</a></p>
+          <p>J’ai développé un service reliant un CRM de médecin-expert à Proton pour envoyer, consulter, mettre à jour et programmer des messages, avec authentification, validation, suivi des échecs et notifications.</p>
+          <p class="stack"><strong>Outils :</strong> Python et FastAPI pour l’API, Proton Bridge et SMTP/IMAP pour la messagerie, SQLite pour les envois différés, Base44 pour le CRM.</p>
+        </article>
+      </section>
     </div>
+  </section>
+  </div>
+
+  <div class="cv-version" id="cv-en" lang="en" hidden>
+    <section class="sheet" aria-label="Gavriel Myara's CV, page 1">
+      <aside class="rail" aria-label="Identity, contact details and skills">
+        <header class="identity">
+          <h1>Gavriel <span>Myara</span></h1>
+          <p class="role">Third-year Computer Science student (DANT)<br>Software development &amp; applied AI</p>
+        </header>
+        <section class="rail-section" aria-labelledby="contact-title-en">
+          <h2 id="contact-title-en">Contact</h2>
+          <ul class="contact-list">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:gavriel.myara@gmail.com">gavriel.myara@<br>gmail.com</a></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+33695995393">06 95 99 53 93</a></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg><a href="https://www.linkedin.com/in/gavriel-myara-759825311/">linkedin.com/in/gavriel-myara</a></li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-link"/></svg><a href="https://github.com/gaviash">github.com/gaviash</a></li>
+          </ul>
+        </section>
+        <section class="rail-section" aria-labelledby="skills-title-en">
+          <h2 id="skills-title-en">Skills</h2>
+          <ul class="skill-list">
+            <li><strong>Languages:</strong> Python, SQL, C, HTML/CSS, GDScript.</li>
+            <li><strong>Fundamentals:</strong> algorithms, data structures, object-oriented programming.</li>
+            <li><strong>Backend:</strong> REST APIs, relational databases, service integration, SMTP/IMAP, webhooks.</li>
+            <li><strong>Applied AI:</strong> RAG, document retrieval, embeddings, tool-using agents, prompting and evaluation.</li>
+          </ul>
+        </section>
+        <section class="rail-section" aria-labelledby="language-title-en">
+          <h2 id="language-title-en">Language</h2>
+          <p><strong>English: B2</strong><br><span class="muted">English coursework in Year 2.</span></p>
+        </section>
+        <p class="page-number">01 / 02</p>
+      </aside>
+      <main class="content">
+        <header class="intro">
+          <p class="eyebrow">Profile</p>
+          <p>Third-year Computer Science student in the DANT track, <strong>ranked 1st of 165 in the single-major Year 2 cohort</strong> and <strong>1st of 27 in the professional track</strong> in 2025–2026. My internship with Keyrus AI’s Data Science &amp; AI team strengthened my work in software development and applied AI, from prototyping to evaluation.</p>
+        </header>
+        <section class="main-section" aria-labelledby="education-title-en">
+          <h2 class="section-title" id="education-title-en"><svg class="icon" aria-hidden="true"><use href="#i-study"/></svg>Education</h2>
+          <article class="entry">
+            <h3>Bachelor’s degree in Computer Science · Sorbonne University</h3>
+            <p class="meta">Paris · Since 2024 · Currently in Year 3 (2026–2027)</p>
+            <p>After a first year in formal sciences and a second year in Computer Science, I joined the DANT track (New Technology Application Development). I am currently studying systems, networks, advanced object-oriented programming, software engineering, entrepreneurship and mathematics.</p>
+            <p><strong>In Year 2 (2025–2026),</strong> I earned an average of <strong>15.164/20</strong> and ranked <strong>1st of 165</strong> in the single-major Computer Science cohort and <strong>1st of 27</strong> in the professional track. I received <strong>90/100</strong> for my internship. My coursework included web development, algorithms, data structures, relational databases, systems and discrete mathematics.</p>
+          </article>
+          <article class="entry compact">
+            <h3>French general baccalaureate · Honors (Mention Bien)</h3>
+            <p class="meta">Yavné Paris · 2017–2024</p>
+            <p>I studied mathematics and computer science as specialty subjects.</p>
+          </article>
+        </section>
+        <section class="main-section" aria-labelledby="experience-title-en">
+          <h2 class="section-title" id="experience-title-en"><svg class="icon" aria-hidden="true"><use href="#i-work"/></svg>Professional experience</h2>
+          <article class="entry">
+            <h3>Junior AI Engineering Intern · Keyrus AI</h3>
+            <p class="meta">16 April – 24 July 2026 · Data Science &amp; AI team · Levallois-Perret</p>
+            <ul class="stage-points">
+              <li>I built applied AI prototypes, developed APIs, and automated tests and deployment.</li>
+              <li>I compared document retrieval and generation approaches by measuring reliability, runtime, token use and cost, then presented a report and demonstration to the team.</li>
+              <li>Working with a technical lead, I helped launch an engagement for LCL: I clarified requirements with the DevOps team, ran initial trials of SQL test generation and proposed an architecture that was approved and adopted as the reference for the entire engagement.</li>
+            </ul>
+            <p class="small-note">I also observed an engagement for Antalis to learn about its application architecture and continuous integration practices.</p>
+          </article>
+          <article class="entry compact">
+            <h3>Private Tutor · Academic support</h3>
+            <p>I tutored middle and high school students in mathematics and science, adapting my explanations to each student.</p>
+          </article>
+          <article class="entry compact">
+            <h3>Restaurant server · Resto V</h3>
+            <p class="meta">Summer job · La Garenne-Colombes</p>
+            <p>I managed the dining area, served guests and handled payments.</p>
+          </article>
+        </section>
+      </main>
+    </section>
+
+    <section class="sheet" aria-label="Gavriel Myara's CV, page 2">
+      <aside class="rail" aria-label="Tools and interests">
+        <header><p class="side-intro">Gavriel Myara</p><p class="side-subtitle">Software development &amp; applied AI</p></header>
+        <section class="rail-section" aria-labelledby="tools-title-en">
+          <h2 id="tools-title-en">Tools</h2>
+          <ul class="skill-list">
+            <li><strong>Backend:</strong> FastAPI, Pydantic, SQLite.</li>
+            <li><strong>AI:</strong> LlamaIndex, Ollama, Langfuse.</li>
+            <li><strong>Development:</strong> Git, GitHub, GitLab, Docker, Pytest, Ruff, Linux, Bash.</li>
+            <li><strong>Creative:</strong> VS Code, Bootstrap, Godot, Google Analytics, Base44, Claude AI, Make, Canva.</li>
+          </ul>
+          <p class="small-note">I was introduced to AWS Bedrock and Jenkins during my internship.</p>
+        </section>
+        <section class="rail-section" aria-labelledby="interests-title-en">
+          <h2 id="interests-title-en">Interests</h2>
+          <ul class="interest-list">
+            <li>Computer science and personal projects.</li>
+            <li><strong>Video games</strong><br>Favorite series: Fire Emblem, Persona and Zelda.<br>Recently played: FF7 Remake and Fire Emblem Fortune’s Weave.</li>
+            <li><strong>Reading</strong><br>Fantasy, science fiction and crime fiction.<br>Recently read: <cite>Les Diables</cite> by Joe Abercrombie and <cite>Je suis Pilgrim</cite> by Terry Hayes.</li>
+            <li>Manga.</li>
+            <li>Running, basketball and chess.</li>
+          </ul>
+        </section>
+        <p class="page-number">02 / 02</p>
+      </aside>
+      <div class="content">
+        <header class="continuation"><p class="eyebrow">Selected work</p><h2 class="continuation-title">Projects &amp; achievements</h2></header>
+        <section aria-label="Projects in reverse chronological order">
+          <article class="entry project">
+            <h3>DocumentationAgent · Code documentation</h3>
+            <p class="meta">2026 · Keyrus AI internship · <a href="https://github.com/gaviash/Documentation-Agent">Version 1</a> · <a href="https://github.com/gaviash/DocumentationAgent-v2">Version 2</a></p>
+            <p>I built a tool that explores a codebase and creates tailored documentation, then a second version that handles repeatable steps in code. In internship trials, it went from about <strong>500,000 to 80,000 tokens</strong>, from <strong>10–15 to 5 minutes</strong>, and from <strong>30% to 90%</strong> of documents rated satisfactory.</p>
+            <p class="stack"><strong>Tools:</strong> Python for orchestration; LlamaIndex and Ollama for model calls; Langfuse for measurement; Pandoc and Mermaid for exports.</p>
+          </article>
+          <article class="entry project">
+            <h3>Little Agent · Tool-using AI agent</h3>
+            <p class="meta">2026 · Keyrus AI internship · <a href="https://github.com/gaviash/little_agent">View code</a></p>
+            <p>I built an agent that can work with files, a terminal and web search through a chat interface and an API. I added file access controls, tests and automated deployment.</p>
+            <p class="stack"><strong>Tools:</strong> LlamaIndex, FastAPI and Tavily; Pytest and Ruff for verification; Docker, GitHub Actions and Render for deployment.</p>
+          </article>
+          <article class="entry project">
+            <h3>PageIndex · Comparative study</h3>
+            <p class="meta">2026 · Internship assignment</p>
+            <p>I evaluated hierarchical search in long structured documents against conventional vector RAG. I adapted the prototype, measured accuracy, latency and cost, then presented a report and demonstration.</p>
+            <p class="stack"><strong>Tools:</strong> PageIndex for retrieval; Langfuse to track model calls and their cost.</p>
+          </article>
+          <article class="entry project">
+            <h3>Gustave · Document chatbot</h3>
+            <p class="meta">2026 · Keyrus AI interview project · <a href="https://github.com/gaviash/Documentary-Chatbot---Gustave">View code</a></p>
+            <p>I created a document chatbot with a local model and persistent index. I separated document queries from general conversation; in my test environment, replies that did not require document search fell from about <strong>90–120 seconds to 2–8 seconds</strong>.</p>
+            <p class="stack"><strong>Tools:</strong> LlamaIndex for indexing, Ollama for responses, Hugging Face embeddings for retrieval and FastAPI for the API.</p>
+          </article>
+          <article class="entry project">
+            <h3>Masked · Platform game</h3>
+            <p class="meta">2025 · Personal project · <a href="https://gavi-db.itch.io/masked">Playable demo</a></p>
+            <p>I built this game during my first year of university using <strong>Godot</strong> and <strong>GDScript</strong>.</p>
+          </article>
+          <article class="entry project">
+            <h3>Boids: Flock of Birds · Flocking simulation</h3>
+            <p class="meta">2025 · University project · <a href="https://github.com/are-dynamic-2025-g6/boids">Code and overview</a></p>
+            <p>I built a flocking simulation based on the Boids model, with 2D visualization in <strong>Godot</strong> and movement rules programmed in <strong>GDScript</strong>.</p>
+          </article>
+          <article class="entry project">
+            <h3>Messaging backend · Medical CRM</h3>
+            <p class="meta">Additional project · <a href="https://github.com/Magic-platform/proton_backend">View code</a></p>
+            <p>I developed a service connecting a medical expert’s CRM to Proton to send, read, update and schedule messages, with authentication, input validation, failure tracking and notifications.</p>
+            <p class="stack"><strong>Tools:</strong> Python and FastAPI for the API, Proton Bridge and SMTP/IMAP for email, SQLite for scheduled messages and Base44 for the CRM.</p>
+          </article>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    (() => {
+      const french = document.getElementById('cv-fr');
+      const english = document.getElementById('cv-en');
+      const control = document.querySelector('.language-control');
+      const button = document.getElementById('language-switch');
+      let language = 'fr';
+
+      button.addEventListener('click', () => {
+        language = language === 'fr' ? 'en' : 'fr';
+        french.hidden = language !== 'fr';
+        english.hidden = language !== 'en';
+        document.documentElement.lang = language;
+        document.title = language === 'fr' ? 'Gavriel Myara — CV' : 'Gavriel Myara — Résumé';
+        button.textContent = language === 'fr' ? 'English version' : 'Version française';
+      });
+
+      control.hidden = false;
+    })();
+  </script>
 </body>
 </html>
-
